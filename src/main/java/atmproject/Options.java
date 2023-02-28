@@ -16,6 +16,7 @@ public class Options extends Account{
     public void login(){
 
         System.out.println("Welcome to the TechProEd ATM");
+        int counter = 0;
         do{
             data.put(12345, 1234);
             data.put(23456, 2345);
@@ -43,7 +44,17 @@ public class Options extends Account{
                 }
             }
             if(count==data.size()){
+                counter++;
                 System.out.println("You entered the wrong keying");
+                System.out.println("Enter any number to continue process or enter 'Q' to quit");
+                String exit = input.next();
+                if (exit.equalsIgnoreCase("Q")){
+                    flag = false;
+                }
+            }
+            if(counter ==3){
+                System.out.println("You have been blocked!!");
+                flag = false;
             }
         }while (flag);
 
